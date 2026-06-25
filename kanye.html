@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanye West (Ye)</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @font-face {
+      font-family: 'Monument Extended';
+      src: local('Monument Extended'), local('MonumentExtended-Regular');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: #0e1016;
+      color: #ffffff;
+      font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── DOT GRID (from Figma BACKGROUND layer) ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, #2e3140 1.2px, transparent 1.2px);
+      background-size: 120px 120px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── SCROLL PROGRESS ── */
+    #progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: #fa181b;
+      width: 0%;
+      z-index: 999;
+      transition: width 0.1s linear;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 1378px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 224px;
+      padding-top: 179px;
+      padding-bottom: 200px;
+    }
+
+    /* ══════════════════════════════
+       SECTION 1 — HEADING / TWEET
+    ══════════════════════════════ */
+    #section-hero {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 57px;
+      padding-left: 178.5px;
+    }
+
+    /* Close button + card wrapper */
+    .tweet-card-wrap {
+      position: relative;
+      width: 1021px;
+    }
+
+    /* Close button — sits above-left of card, overlapping corner */
+    .close-btn-wrap {
+      position: absolute;
+      top: -86.3px;
+      left: 0;
+      width: 87px;
+      height: 86.3px;
+    }
+
+    .close-btn-inner {
+      position: absolute;
+      top: 0.7px;
+      left: 0.7px;
+      width: 84.9px;
+      height: 84.9px;
+      background: #141820;
+      border-top: 1px solid #3f4042;
+      border-left: 1px solid #3f4042;
+      border-right: 1px solid #3f4042;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .close-btn-inner img {
+      width: 56px;
+      height: 56px;
+      display: block;
+    }
+
+    /* Corner bracket ticks (L-shapes at 4 corners of the button) */
+    .close-btn-wrap .tick {
+      position: absolute;
+      background: #d9d9d9;
+    }
+
+    /* Title bar */
+    .title-bar {
+      background: #141820;
+      border: 1px solid #3f4042;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+    }
+
+    .title-bar h1 {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-weight: 400;
+      font-size: 48px;
+      line-height: normal;
+      color: #fa181b;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    /* Tweet block */
+    .tweet-block {
+      background: #141820;
+      border-left: 1px solid #3f4042;
+      border-right: 1px solid #3f4042;
+      padding: 50px 32px;
+    }
+
+    .tweet-block p {
+      font-size: 32px;
+      line-height: 45px;
+      color: #e3e3e3;
+      font-weight: 400;
+    }
+
+    /* Meta rows */
+    .meta-grid {
+      display: flex;
+      width: 100%;
+    }
+
+    .meta-cell {
+      background: #141820;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px;
+      flex: 1;
+      font-size: 24px;
+      line-height: 45px;
+      white-space: nowrap;
+    }
+
+    .meta-row-1 .meta-cell:first-child { border: 1px solid #3f4042; border-right: none; border-bottom: none; }
+    .meta-row-1 .meta-cell:last-child  { border: 1px solid #3f4042; border-bottom: none; }
+    .meta-row-2 .meta-cell:first-child { border: 1px solid #3f4042; border-right: none; }
+    .meta-row-2 .meta-cell:last-child  { border: 1px solid #3f4042; }
+
+    .meta-label { color: #e3e3e3; font-weight: 400; }
+    .meta-value { color: #ffffff; font-weight: 700; }
+
+    /* Footnote */
+    .footnote {
+      font-size: 24px;
+      line-height: 40px;
+      color: #ffffff;
+      font-weight: 400;
+      width: 1021px;
+    }
+
+    /* ══════════════════════════════
+       SECTION 2 — CONTEXT & TIMELINE
+    ══════════════════════════════ */
+    #section-context {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 96px;
+    }
+
+    .context-text {
+      width: 1108px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .context-text h2 {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-weight: 400;
+      font-size: 64px;
+      line-height: 70px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .context-text p {
+      font-size: 24px;
+      line-height: 40px;
+      color: #e3e3e3;
+      font-weight: 400;
+    }
+
+    .context-text strong { font-weight: 700; }
+
+    /* Timeline visualization */
+    .viz-timeline {
+      position: relative;
+      width: 1346px;
+      height: 573px;
+    }
+
+    .tl-labels {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .tl-label {
+      position: absolute;
+      font-size: 24px;
+      line-height: 50px;
+      color: #e3e3e3;
+    }
+
+    .tl-label.red { color: #fa181b; font-weight: 700; }
+
+    /* Horizontal bar */
+    .tl-bar {
+      position: absolute;
+      top: 315px;
+      left: 0;
+      width: 1346px;
+      height: 4px;
+      background: #494949;
+    }
+
+    /* Vertical lines */
+    .tl-vline {
+      position: absolute;
+      top: 76px;
+      width: 1px;
+      height: 497px;
+      background: #494949;
+    }
+    .tl-vline.red { background: #f00009; }
+
+    /* Avatar bubbles */
+    .tl-avatar {
+      position: absolute;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      border: 1px solid #a8a9ab;
+      overflow: hidden;
+      background: #333;
+      cursor: default;
+    }
+
+    .tl-avatar img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      filter: grayscale(100%);
+    }
+
+    /* Floating tooltip — appended to viz-timeline, not inside avatar */
+    #tl-floating-tooltip {
+      display: none;
+      position: absolute;
+      width: 280px;
+      background: #10141a;
+      border: 1px solid #a8a9ab;
+      border-radius: 8px;
+      padding: 16px;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 200;
+      pointer-events: none;
+    }
+
+    #tl-floating-tooltip.visible {
+      display: flex;
+    }
+
+    #tl-floating-tooltip .tt-name {
+      font-size: 14px;
+      line-height: 18px;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    #tl-floating-tooltip .tt-date {
+      font-size: 12px;
+      line-height: 16px;
+      color: #fa181b;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    #tl-floating-tooltip .tt-body {
+      font-size: 13px;
+      line-height: 18px;
+      color: #e3e3e3;
+      font-weight: 400;
+    }
+
+    /* ══════════════════════════════
+       SECTION 3 — $3 BILLION
+    ══════════════════════════════ */
+    #section-billions {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 96px;
+    }
+
+    .billions-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+      width: 1171px;
+    }
+
+    .billions-heading {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-weight: 400;
+      font-size: 157px;
+      line-height: 149px;
+      color: #ffffff;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .billions-heading .red { color: #fa181b; }
+
+    .billions-body {
+      font-size: 24px;
+      line-height: 40px;
+      color: #e3e3e3;
+      font-weight: 400;
+      width: 1108px;
+      text-align: center;
+    }
+
+    /* Pie chart section */
+    .pie-wrap {
+      display: flex;
+      justify-content: center;
+      width: 1378px;
+    }
+
+    .pie-svg-container {
+      position: relative;
+      width: 540px;
+      height: 540px;
+    }
+
+    .pie-svg-container svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .pie-slice {
+      cursor: pointer;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      transform-origin: 240px 240px;
+      transform-box: view-box;
+    }
+
+    .pie-center-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .pie-center-label .center-total {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-size: 34px;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .pie-center-label .center-sub {
+      font-size: 12px;
+      color: #a0a0a0;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Floating tooltip for pie */
+    #pie-tooltip {
+      position: fixed;
+      background: #10141a;
+      border: 1px solid #3f4042;
+      border-radius: 10px;
+      padding: 16px 18px;
+      width: 280px;
+      pointer-events: none;
+      z-index: 300;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    #pie-tooltip.visible { opacity: 1; }
+
+    #pie-tooltip .pt-name { font-size: 15px; font-weight: 700; color: #fff; }
+    #pie-tooltip .pt-date { font-size: 12px; font-weight: 600; color: #fa181b; }
+    #pie-tooltip .pt-amount { font-size: 13px; font-weight: 600; color: #a0a0a0; }
+    #pie-tooltip .pt-desc { font-size: 12px; color: #e3e3e3; line-height: 1.6; margin-top: 2px; }
+
+    /* Bottom body text */
+    .billions-body-bottom {
+      width: 1108px;
+      font-size: 24px;
+      line-height: 40px;
+      color: #e3e3e3;
+      font-weight: 400;
+    }
+
+    /* ══════════════════════════════
+       SECTION 4 — TWEET DELETED
+    ══════════════════════════════ */
+    #section-deleted {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 170px;
+    }
+
+    .deleted-top {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      width: 1108px;
+    }
+
+    .deleted-top h2 {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 70px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .deleted-top p {
+      font-size: 24px;
+      line-height: 40px;
+      color: #e3e3e3;
+      font-weight: 400;
+    }
+
+    .adl-stat {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-weight: 400;
+      font-size: 56px;
+      line-height: 70px;
+      color: #ffffff;
+      text-transform: uppercase;
+      width: 1108px;
+    }
+
+    .adl-stat .red { color: #fa181b; }
+
+    /* ══════════════════════════════
+       SCROLL ANIMATIONS
+    ══════════════════════════════ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up.d1 { transition-delay: 0.1s; }
+    .fade-up.d2 { transition-delay: 0.2s; }
+    .fade-up.d3 { transition-delay: 0.3s; }
+    .fade-up.d4 { transition-delay: 0.4s; }
+
+    /* Avatar stagger for timeline */
+    .tl-avatar { opacity: 0; transform: scale(0.7); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .tl-avatar.visible { opacity: 1; transform: scale(1); }
+
+    /* Pie chart slice animation */
+    .pie-slice {
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    /* Billions counter */
+    .count-target { display: inline; }
+
+    /* ══════════════════════════════
+       IPHONE MOCKUP (always-visible mobile view)
+    ══════════════════════════════ */
+    #mockup-overlay {
+      display: flex;
+      position: fixed;
+      inset: 0;
+      z-index: 998;
+      background: rgba(10, 11, 16, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── iPhone 16 realistic shell ── */
+    .iphone-shell {
+      position: relative;
+      width: 340px;
+      height: 736px;
+      border-radius: 54px;
+      flex-shrink: 0;
+      background: linear-gradient(160deg, #5a5a58 0%, #3e3e3c 8%, #4a4a48 16%,
+        #343432 24%, #424240 32%, #383836 40%, #4e4e4c 48%, #363634 56%,
+        #444442 64%, #303030 72%, #3c3c3a 80%, #464644 88%, #363634 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.12),
+        inset 0 0 0 2px rgba(0,0,0,0.25),
+        0 0 0 1px rgba(0,0,0,0.5),
+        0 30px 60px rgba(0,0,0,0.65),
+        0 60px 120px rgba(0,0,0,0.4),
+        0 4px 8px rgba(0,0,0,0.5);
+    }
+
+    /* Mute toggle — left side, topmost, short */
+    .iphone-vol-mute {
+      position: absolute;
+      left: -3px;
+      top: 106px;
+      width: 3px;
+      height: 20px;
+      background: linear-gradient(to right, #2a2a28 0%, #3a3a38 40%, #464644 100%);
+      border-radius: 2px 0 0 2px;
+    }
+
+    /* Volume up */
+    .iphone-vol-up {
+      position: absolute;
+      left: -3px;
+      top: 130px;
+      width: 3px;
+      height: 36px;
+      background: linear-gradient(to right, #2a2a28 0%, #3a3a38 40%, #464644 100%);
+      border-radius: 2px 0 0 2px;
+    }
+
+    /* Volume down */
+    .iphone-vol-down {
+      position: absolute;
+      left: -3px;
+      top: 180px;
+      width: 3px;
+      height: 36px;
+      background: linear-gradient(to right, #2a2a28 0%, #3a3a38 40%, #464644 100%);
+      border-radius: 2px 0 0 2px;
+    }
+
+    /* Power button — right side */
+    .iphone-shell::after {
+      content: '';
+      position: absolute;
+      right: -3px;
+      top: 190px;
+      width: 3px;
+      height: 72px;
+      background: linear-gradient(to left, #2a2a28 0%, #3a3a38 40%, #464644 100%);
+      border-radius: 0 2px 2px 0;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+    }
+
+    /* Screen recess */
+    .iphone-screen-bezel {
+      position: absolute;
+      inset: 8px;
+      border-radius: 46px;
+      background: #000;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.8);
+    }
+
+    /* Screen area */
+    .iphone-screen {
+      position: absolute;
+      inset: 10px;
+      border-radius: 44px;
+      overflow: hidden;
+      background: #141820;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.3);
+    }
+
+    /* Screen glare overlay */
+    .iphone-screen::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(180deg,
+        rgba(255,255,255,0.04) 0%,
+        rgba(255,255,255,0) 100%
+      );
+      border-radius: 44px 44px 0 0;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    /* Dynamic Island */
+    .iphone-island {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 34px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 10;
+      box-shadow: inset 22px 9px 0 -5px #111;
+    }
+
+    /* ── X Thread screen ── */
+    #x-thread-screen {
+      position: absolute;
+      inset: 0;
+      background: #000;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      color: #fff;
+      border-radius: 44px;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    }
+    #x-thread-screen.x-hidden {
+      transform: translateX(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .x-status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px 6px;
+      flex-shrink: 0;
+    }
+    .x-time { font-size: 15px; font-weight: 600; letter-spacing: -0.3px; }
+    .x-status-icons { display: flex; align-items: center; gap: 6px; }
+    .x-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 18px 10px;
+      flex-shrink: 0;
+    }
+    .x-nav-title { font-size: 17px; font-weight: 700; }
+    .x-scroll {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: none;
+    }
+    .x-scroll::-webkit-scrollbar { display: none; }
+    .x-post-main {
+      display: flex;
+      gap: 12px;
+      padding: 12px 16px 0;
+    }
+    .x-reply {
+      display: flex;
+      gap: 12px;
+      padding: 12px 16px 0;
+    }
+    .x-post-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .x-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #333;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .x-avatar-main { width: 44px; height: 44px; }
+    .x-thread-line {
+      width: 2px;
+      flex: 1;
+      min-height: 16px;
+      background: #2f3336;
+      margin-top: 6px;
+    }
+    .x-post-right { flex: 1; min-width: 0; padding-bottom: 14px; }
+    .x-post-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .x-name { font-size: 15px; font-weight: 700; margin-right: 4px; }
+    .x-handle { font-size: 14px; color: #71767b; }
+    .x-post-body {
+      font-size: 16px;
+      line-height: 22px;
+      color: #e7e9ea;
+      margin-bottom: 12px;
+    }
+    .x-reply-body {
+      font-size: 15px;
+      line-height: 21px;
+      color: #e7e9ea;
+      margin-bottom: 8px;
+    }
+    .x-link {
+      color: #1d9bf0;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .x-post-meta {
+      font-size: 13px;
+      color: #71767b;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #2f3336;
+    }
+    .x-post-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #71767b;
+    }
+    .x-action {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      color: #71767b;
+      cursor: pointer;
+    }
+    .x-divider { height: 1px; background: #2f3336; margin: 4px 0; }
+    .x-replies-label {
+      padding: 10px 16px;
+      font-size: 14px;
+      color: #71767b;
+      border-bottom: 1px solid #2f3336;
+    }
+    /* Link preview card */
+    .x-link-card {
+      border: 1px solid #2f3336;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .x-link-card-img {
+      height: 130px;
+      background: #141820;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .x-link-card-img svg {
+      width: 100%;
+      height: 100%;
+    }
+    .x-link-card-text { padding: 10px 14px 12px; background: #16181c; }
+    .x-link-card-domain { font-size: 13px; color: #71767b; margin-bottom: 2px; }
+    .x-link-card-title { font-size: 14px; font-weight: 600; color: #e7e9ea; line-height: 18px; }
+    .x-bottom-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 10px 0 22px;
+      border-top: 1px solid #2f3336;
+      flex-shrink: 0;
+      background: #000;
+    }
+
+    /* Scrollable content inside phone */
+    /* The scaler wraps mobile-page and shrinks it from 393px → 310px screen width */
+    .iphone-content {
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .iphone-content::-webkit-scrollbar { display: none; }
+
+    /* Scale wrapper: renders at true 393px, scaled to fit 320px screen.
+       Height is set via JS after render so the scroll container knows true height. */
+    .mobile-scaler {
+      width: 393px;
+      transform-origin: top left;
+      transform: scale(0.8142); /* 320/393 — screen is 340px shell - 10px inset each side = 320px */
+    }
+
+    /* ── Mobile scroll animations ── */
+    .m-fade {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .m-fade.m-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .m-fade.m-d1 { transition-delay: 0.08s; }
+    .m-fade.m-d2 { transition-delay: 0.16s; }
+    .m-fade.m-d3 { transition-delay: 0.24s; }
+    .m-fade.m-d4 { transition-delay: 0.32s; }
+    .m-fade.m-d5 { transition-delay: 0.40s; }
+
+    /* pie pops in from scale */
+    .m-pop {
+      opacity: 0;
+      transform: scale(0.82);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .m-pop.m-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* timeline avatar stagger — layout props merged below into main .m-tl-avatar rule */
+    .m-tl-avatar.m-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ══════════════════════════════
+       MOBILE LAYOUT (inside mockup)
+    ══════════════════════════════ */
+    .mobile-page {
+      background: #141820;
+      color: #fff;
+      font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      width: 393px;
+      /* Figma: left-[24px] top-[48px], content w-[346px] → padding 24px sides, 48px top */
+      padding: 48px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 88px; /* Figma gap-[88px] between top-level sections */
+    }
+
+    /* ── S1: Hero ── */
+    .m-s1 { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+
+    /* Close button: 40×40, border t/l/r only, 24px X icon inside */
+    .m-close {
+      width: 39.355px; height: 39.355px;
+      background: #141820;
+      border-top: 1px solid #3f4042;
+      border-left: 1px solid #3f4042;
+      border-right: 1px solid #3f4042;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+    /* corner bracket ticks */
+    .m-close::before, .m-close::after,
+    .m-close-tl::before, .m-close-tl::after { display: none; } /* handled inline */
+
+    /* The tweet card stack */
+    .m-card { display: flex; flex-direction: column; width: 100%; }
+
+    .m-title-bar {
+      background: #141820;
+      border: 1px solid #3f4042;
+      padding: 16px;
+      overflow: hidden;
+    }
+    .m-title-bar h1 {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-size: 18px;
+      line-height: normal;
+      color: #fa181b;
+      text-transform: uppercase;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .m-tweet-body {
+      background: #141820;
+      border-left: 1px solid #3f4042;
+      border-right: 1px solid #3f4042;
+      padding: 16px;
+      font-size: 24px;
+      line-height: 30px;
+      color: #fff;
+    }
+
+    /* Meta rows — exact Figma: leading-[45px], py-[4px], px-[16px], label mb-[-17px] */
+    .m-meta-row { display: flex; width: 100%; }
+    .m-meta-cell {
+      flex: 1 0 0;
+      background: #141820;
+      display: flex;
+      flex-direction: column;
+      padding: 4px 16px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .m-meta-row-1 .m-meta-cell:first-child {
+      border-top: 1px solid #3f4042;
+      border-left: 1px solid #3f4042;
+      border-bottom: 1px solid #3f4042;
+    }
+    .m-meta-row-1 .m-meta-cell:last-child {
+      border: 1px solid #3f4042;
+    }
+    .m-meta-row-2 .m-meta-cell:first-child {
+      border-left: 1px solid #3f4042;
+      border-bottom: 1px solid #3f4042;
+    }
+    .m-meta-row-2 .m-meta-cell:last-child {
+      border-left: 1px solid #3f4042;
+      border-right: 1px solid #3f4042;
+      border-bottom: 1px solid #3f4042;
+    }
+    .m-meta-label {
+      font-size: 14px;
+      line-height: 45px;
+      color: rgba(227,227,227,0.88);
+      font-weight: 400;
+      margin-bottom: -17px; /* Figma mb-[-17px] for tight stacking */
+    }
+    .m-meta-value {
+      font-size: 16px;
+      line-height: 45px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .m-footnote {
+      font-size: 16px;
+      line-height: 24px;
+      color: #fff;
+      font-weight: 400;
+      width: 100%;
+    }
+
+    /* ── S2: Context + Timeline ── */
+    .m-s2 { display: flex; flex-direction: column; gap: 32px; width: 100%; }
+
+    .m-context-text { display: flex; flex-direction: column; gap: 16px; }
+    .m-section-heading {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-size: 27px;
+      line-height: 32px;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 400;
+    }
+    .m-body { font-size: 16px; line-height: 24px; color: #fff; font-weight: 400; }
+    .m-body strong { font-weight: 700; }
+
+    /* Timeline: 2-col grid (avatar col | text). Each entry's avatar+connector and its text share one grid row, so they always line up. The connector lives inside the avatar column and stretches to fill the row — so it grows automatically when the row grows (i.e. when that entry's card expands). */
+    .m-timeline { width: 100%; }
+    .m-tl-row-grid {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      column-gap: 16px; /* Figma ml-[56px] = 40px avatar + 16px gap */
+      width: 100%;
+    }
+    .m-tl-row-grid > .m-tl-avatar-col {
+      grid-column: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .m-tl-row-grid > .m-tl-item {
+      grid-column: 2;
+    }
+    .m-tl-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid #3d3d3d;
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+      opacity: 0;
+      transform: scale(0.7);
+      transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.2s ease;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      margin-top: 6px; /* Figma mt-[6px] */
+    }
+    .m-tl-avatar.active { border-color: #fa181b; }
+    .m-tl-avatar img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      pointer-events: none;
+      border-radius: 50%;
+      filter: grayscale(1);
+      transition: filter 0.2s ease;
+    }
+    .m-tl-avatar.active img { filter: grayscale(0); }
+    .m-tl-connector {
+      width: 1px;
+      flex: 1 0 16px; /* fills remaining row height; grows when the row grows */
+      min-height: 16px;
+      background: #3d3d3d;
+      transition: flex-basis 0.2s ease;
+    }
+    .m-tl-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+      background: none;
+      border: 1px solid transparent;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: border-color 0.2s ease, padding 0.2s ease;
+      align-self: start;
+    }
+    .m-tl-row { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .m-tl-date {
+      font-size: 12px; line-height: 24px;
+      color: #c3c3c3; font-weight: 400;
+      flex-shrink: 0;
+    }
+    .m-tl-name { font-size: 14px; line-height: 24px; font-weight: 700; color: rgba(255,255,255,0.8); }
+    .m-tl-desc {
+      font-size: 16px; line-height: 20px; color: #fff; font-weight: 400;
+      display: none;
+    }
+    .m-tl-item.active {
+      border-color: #3f4042;
+      padding: 12px;
+      margin-bottom: 32px; /* fixed gap from the expanded card down to the next item */
+    }
+    .m-tl-item.active .m-tl-name { color: #fff; }
+    .m-tl-item.active .m-tl-desc { display: block; }
+
+    /* ── S3: Billions ── */
+    .m-s3 { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+    .m-billions-head { display: flex; flex-direction: column; gap: 16px; text-align: center; }
+    .m-billions-heading {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-size: 48px;
+      line-height: 54px;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #fff;
+      width: 346px;
+    }
+    .m-billions-heading .red { color: #fa181b; }
+
+    /* Pie image + info panel */
+    .m-pie-section { display: flex; flex-direction: column; gap: 8px; align-items: center; width: 100%; }
+    .m-pie-img { width: 290px; height: 293px; object-fit: cover; display: block; }
+
+    /* Click info panel */
+    .m-pie-info {
+      width: 100%;
+      border-top: 1px solid #fa181b;
+      padding-top: 16px;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .m-pie-info.visible { display: flex; }
+    .m-pie-info-header { display: flex; flex-direction: column; gap: 4px; }
+    .m-pie-info-brand { font-size: 12px; line-height: 24px; color: #c3c3c3; font-weight: 400; }
+    .m-pie-info-amount { font-size: 24px; line-height: 24px; font-weight: 700; color: #fff; }
+    .m-pie-info-desc { font-size: 14px; line-height: 22px; color: #9a9aa0; font-weight: 400; }
+    .m-pie-info-desc strong { font-weight: 600; }
+    .m-pie-body-text { margin-top: calc(88px - 24px); } /* 88px total gap from pie section, minus existing gap:24px */
+
+    /* SVG donut (overlaid on image or shown instead) */
+    .m-pie-svg-wrap { position: relative; width: 290px; height: 290px; flex-shrink: 0; }
+    .m-pie-svg-wrap svg { width: 100%; height: 100%; overflow: visible; cursor: pointer; }
+    .m-pie-center-label {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center; pointer-events: none;
+    }
+    .m-pie-center-num {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-size: 22px; color: #fff; line-height: 1; display: block;
+    }
+    .m-pie-center-sub { font-size: 9px; color: #6b6e7a; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; display: block; }
+
+    /* ── S4: Deleted ── */
+    .m-s4 { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+
+    /* ADL stat */
+    .m-adl {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-size: 27px; line-height: 32px;
+      text-transform: uppercase; color: #fff; font-weight: 400;
+    }
+    .m-adl .red { color: #fa181b; }
+
+    /* Mobile footer */
+    .m-footer {
+      border-top: 1px solid #1e2130;
+      padding-top: 24px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .m-footer-title {
+      font-family: 'Monument Extended', 'Impact', sans-serif;
+      font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: #494949;
+    }
+    .m-footer-sources { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .m-footer-sources li { font-size: 10px; line-height: 1.5; color: #3a3d4a; }
+    .m-footer-sources .lbl { color: #555870; font-weight: 600; }
+
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     IPHONE 16 MOCKUP (mobile-only view)
+════════════════════════════════════════ -->
+<div id="mockup-overlay">
+
+  <div class="iphone-shell">
+    <!-- Mute toggle (left side, top) -->
+    <div class="iphone-vol-mute"></div>
+    <!-- Volume up -->
+    <div class="iphone-vol-up"></div>
+    <!-- Volume down -->
+    <div class="iphone-vol-down"></div>
+    <!-- Screen recess -->
+    <div class="iphone-screen-bezel"></div>
+    <div class="iphone-screen">
+      <div class="iphone-island"></div>
+
+      <!-- ── X Thread screen (shown first, slides away on link tap) ── -->
+      <div id="x-thread-screen">
+
+        <!-- Status bar -->
+        <div class="x-status-bar">
+          <span class="x-time">9:41</span>
+          <div class="x-status-icons">
+            <!-- Signal bars -->
+            <svg width="17" height="12" viewBox="0 0 17 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="0.5" fill="white" opacity="0.4"/><rect x="4.5" y="5" width="3" height="7" rx="0.5" fill="white" opacity="0.4"/><rect x="9" y="2.5" width="3" height="9.5" rx="0.5" fill="white"/><rect x="13.5" y="0" width="3" height="12" rx="0.5" fill="white"/></svg>
+            <span style="font-size:12px;font-weight:600;letter-spacing:0.3px">4G</span>
+            <!-- Battery -->
+            <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white" stroke-opacity="0.35"/><rect x="1.5" y="1.5" width="19" height="9" rx="2.5" fill="white"/><path d="M22.5 4v4a2 2 0 000-4z" fill="white" fill-opacity="0.4"/></svg>
+          </div>
+        </div>
+
+        <!-- Nav bar -->
+        <div class="x-nav-bar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l7-7M5 12l7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="x-nav-title">Post</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="1.5" fill="white"/><circle cx="12" cy="12" r="1.5" fill="white"/><circle cx="19" cy="12" r="1.5" fill="white"/></svg>
+        </div>
+
+        <!-- Scrollable thread content -->
+        <div class="x-scroll">
+
+          <!-- Main post -->
+          <div class="x-post-main">
+            <div class="x-post-left">
+              <div class="x-avatar x-avatar-main">
+                <img src="kanye.webp" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;filter:grayscale(1)">
+              </div>
+              <div class="x-thread-line"></div>
+            </div>
+            <div class="x-post-right">
+              <div class="x-post-header">
+                <div>
+                  <span class="x-name">Anonymous</span>
+                  <span class="x-handle">@anon_user</span>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </div>
+              <div class="x-post-body">Anyone have the Kanye deleted tweet? Can't find the original anywhere</div>
+              <div class="x-post-meta">9:41 PM · Oct 9, 2022 · <strong>14.2K</strong> Views</div>
+              <div class="x-post-actions">
+                <span class="x-action"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 7.501 3.858 7.501 7.99 0 4.134-3.345 8.01-7.501 8.01h-1.026a2 2 0 00-1.414.586l-2.097 2.097c-.44.44-1.19.128-1.19-.49v-2.475a2 2 0 00-2-2A5.998 5.998 0 011.75 10z" stroke="white" stroke-opacity="0.5" stroke-width="1.5"/></svg> 47</span>
+                <span class="x-action"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5a4 4 0 01-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5a4 4 0 014 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z" fill="white" fill-opacity="0.5"/></svg></span>
+                <span class="x-action"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z" fill="white" fill-opacity="0.5"/></svg> 12</span>
+                <span class="x-action"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z" fill="white" fill-opacity="0.5"/></svg> 14.2K</span>
+                <span class="x-action"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z" fill="white" fill-opacity="0.5"/></svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="x-divider"></div>
+          <div class="x-replies-label">Relevant <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle"><path d="M6 9l6 6 6-6" stroke="white" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+          <!-- Reply with link -->
+          <div class="x-reply">
+            <div class="x-post-left">
+              <div class="x-avatar">
+                <img src="wlm-shirt.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;filter:grayscale(1)">
+              </div>
+              <div class="x-thread-line"></div>
+            </div>
+            <div class="x-post-right">
+              <div class="x-post-header">
+                <div>
+                  <span class="x-name">archivist</span>
+                  <span class="x-handle">@thread_archive · 2h</span>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white" opacity="0.4"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </div>
+              <div class="x-reply-body">found it, someone made a full breakdown <span class="x-link" id="x-thread-link">TweetVault.com/breakdown</span></div>
+              <!-- Link preview card -->
+              <div class="x-link-card" id="x-link-card">
+                <div class="x-link-card-img"><svg width="360" height="233" viewBox="0 0 360 233" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="360" height="233" fill="#141820"/>
+<path d="M102.863 76V83.322H86.3123V109.943H77.5503V83.322H61V76H102.863Z" fill="white"/>
+<path d="M166.931 76H176.423L162.988 109.943H150.867L140.84 84.3888L130.763 109.943H118.691L105.257 76H114.7L124.776 102.67L135.436 76H146.194L156.903 102.718L166.931 76Z" fill="white"/>
+<path d="M214.495 82.9341H187.236V89.8197H214.495V96.1234H187.236V103.009H214.495V109.943H178.474V76H214.495V82.9341Z" fill="white"/>
+<path d="M253.713 82.9341H226.454V89.8197H253.713V96.1234H226.454V103.009H253.713V109.943H217.692V76H253.713V82.9341Z" fill="white"/>
+<path d="M298 76V83.322H281.45V109.943H272.688V83.322H256.137V76H298Z" fill="white"/>
+<path d="M98.1895 122.572H108.022L90.4985 156.515H78.5239L61 122.572H70.8328L84.5112 150.066L98.1895 122.572Z" fill="white"/>
+<path d="M132.942 156.515L129.291 149.29H108.896L105.245 156.515H95.6066L113.179 122.572H125.008L142.629 156.515H132.942ZM112.157 142.792H126.03L119.118 129.021L112.157 142.792Z" fill="white"/>
+<path d="M184.279 139.495C184.279 151.278 177.805 157 162.861 157C147.869 157 141.443 151.327 141.443 139.495V122.572H150.205V139.495C150.205 144.247 151.519 149.678 162.861 149.678C174.203 149.678 175.517 144.199 175.517 139.495V122.572H184.279V139.495Z" fill="white"/>
+<path d="M196.696 149.193H222.982V156.515H187.934V122.572H196.696V149.193Z" fill="white"/>
+<path d="M255.835 122.572V129.894H239.285V156.515H230.523V129.894H213.973V122.572H255.835Z" fill="white"/>
+<path d="M253.82 150.017H262.143V156.515H253.82V150.017Z" fill="white"/>
+</svg></div>
+                <div class="x-link-card-text">
+                  <div class="x-link-card-domain">TweetVault.com</div>
+                  <div class="x-link-card-title">The Kanye DEFCON Tweet — Full Breakdown</div>
+                </div>
+              </div>
+              <div class="x-post-actions" style="margin-top:10px">
+                <span class="x-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 7.501 3.858 7.501 7.99 0 4.134-3.345 8.01-7.501 8.01h-1.026a2 2 0 00-1.414.586l-2.097 2.097c-.44.44-1.19.128-1.19-.49v-2.475a2 2 0 00-2-2A5.998 5.998 0 011.75 10z" stroke="white" stroke-opacity="0.4" stroke-width="1.5"/></svg> 1</span>
+                <span class="x-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5a4 4 0 01-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5a4 4 0 014 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z" fill="white" fill-opacity="0.4"/></svg></span>
+                <span class="x-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z" fill="white" fill-opacity="0.4"/></svg></span>
+                <span class="x-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z" fill="white" fill-opacity="0.4"/></svg> 141</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second reply -->
+          <div class="x-reply">
+            <div class="x-post-left">
+              <div class="x-avatar">
+                <div style="width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#1d9bf0,#0d4f8c);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:white">K</div>
+              </div>
+            </div>
+            <div class="x-post-right">
+              <div class="x-post-header">
+                <div>
+                  <span class="x-name">kanyearchive</span>
+                  <span class="x-handle">@yehistory · 4h</span>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white" opacity="0.4"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </div>
+              <div class="x-reply-body">twitter removed it after 18 hours but screenshots are everywhere. the DEFCON one right?</div>
+              <div class="x-post-actions" style="margin-top:10px">
+                <span class="x-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 7.501 3.858 7.501 7.99 0 4.134-3.345 8.01-7.501 8.01h-1.026a2 2 0 00-1.414.586l-2.097 2.097c-.44.44-1.19.128-1.19-.49v-2.475a2 2 0 00-2-2A5.998 5.998 0 011.75 10z" stroke="white" stroke-opacity="0.4" stroke-width="1.5"/></svg> 3</span>
+                <span class="x-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5a4 4 0 01-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5a4 4 0 014 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z" fill="white" fill-opacity="0.4"/></svg></span>
+                <span class="x-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z" fill="white" fill-opacity="0.4"/></svg> 28</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.x-scroll -->
+
+        <!-- Bottom nav -->
+        <div class="x-bottom-nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M22.46 7.57L12.357 2.115c-.223-.12-.49-.12-.713 0L1.543 7.57c-.364.197-.5.652-.303 1.017.135.25.394.393.66.393.12 0 .243-.03.356-.09l.815-.44L4.7 19.963c.214 1.215 1.308 2.062 2.658 2.062h9.282c1.352 0 2.445-.848 2.663-2.087l1.626-11.49.818.442c.364.193.82.06 1.017-.304.196-.363.06-.818-.304-1.016zm-4.638 12.133c-.107.606-.703 1.033-1.434 1.033H7.36c-.727 0-1.324-.427-1.43-1.018L4.31 8.573l7.69-4.154 7.69 4.154-1.87 11.13z"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5 4.694 0 8.5 3.806 8.5 8.5 0 1.986-.682 3.815-1.814 5.262l4.276 4.276-1.414 1.414-4.276-4.276C13.815 19.818 11.986 20.5 10.25 20.5c-4.694 0-8.5-3.806-8.5-8.5z" fill="white" fill-opacity="0.5"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.25" stroke="white" stroke-opacity="0.5" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="white" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5V15.5c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5V5.5zm2.5-.5c-.276 0-.5.224-.5.5V15.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5V5.5c0-.276-.224-.5-.5-.5h-15z" fill="white" fill-opacity="0.5"/><path d="M12 10.368l7.73-4.438.992 1.728L12 13.13 3.278 7.658l.992-1.728L12 10.368z" fill="white" fill-opacity="0.5"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M17.863 13.44c1.477 1.58 2.366 3.8 2.632 6.46l.11 1.1H3.395l.11-1.1c.266-2.66 1.155-4.88 2.632-6.46C7.627 11.85 9.648 11 12 11s4.373.85 5.863 2.44zM12 2C9.791 2 8 3.79 8 6s1.791 4 4 4 4-1.79 4-4-1.791-4-4-4z" fill="white" fill-opacity="0.5"/></svg>
+        </div>
+
+      </div><!-- /#x-thread-screen -->
+
+      <div class="iphone-content">
+        <div class="mobile-scaler">
+        <div class="mobile-page">
+
+          <!-- ── S1: The tweet (visible immediately, no animation needed) ── -->
+          <div class="m-s1">
+
+            <!-- Tweet card (close button sits above it, no gap to card) -->
+            <div class="m-card">
+
+              <!-- Close button: border t/l/r, no bottom -->
+              <div class="m-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;"><path d="M18 6L6 18M6 6l12 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/></svg>
+                <!-- corner ticks -->
+                <span style="position:absolute;top:0;left:0;width:6.1px;height:0.97px;background:#d9d9d9;"></span>
+                <span style="position:absolute;top:0;left:0;width:0.97px;height:6.1px;background:#d9d9d9;"></span>
+                <span style="position:absolute;top:0;right:0;width:6.1px;height:0.97px;background:#d9d9d9;"></span>
+                <span style="position:absolute;top:0;right:0;width:0.97px;height:6.1px;background:#d9d9d9;"></span>
+                <span style="position:absolute;bottom:0;left:0;width:6.1px;height:0.97px;background:#d9d9d9;"></span>
+                <span style="position:absolute;bottom:0;left:0;width:0.97px;height:6.1px;background:#d9d9d9;"></span>
+                <span style="position:absolute;bottom:0;right:0;width:6.1px;height:0.97px;background:#d9d9d9;"></span>
+                <span style="position:absolute;bottom:0;right:0;width:0.97px;height:6.1px;background:#d9d9d9;"></span>
+              </div>
+
+              <!-- Heading -->
+              <div class="m-title-bar"><h1>KANYE WEST (YE)</h1></div>
+
+              <!-- Tweet text -->
+              <div class="m-tweet-body">I'm a bit sleepy tonight but when I wake up I'm going death con 3 On JEWISH PEOPLE The funny thing is I actually can't be Anti Semitic because black people are actually Jew also You guys have toyed with me and tried to black ball anyone whoever opposes your agenda.</div>
+
+              <!-- Meta row 1 -->
+              <div class="m-meta-row m-meta-row-1">
+                <div class="m-meta-cell">
+                  <span class="m-meta-label">Date tweeted</span>
+                  <span class="m-meta-value">Oct 8 2022</span>
+                </div>
+                <div class="m-meta-cell">
+                  <span class="m-meta-label">Was live for</span>
+                  <span class="m-meta-value">18 hours</span>
+                </div>
+              </div>
+
+              <!-- Meta row 2 -->
+              <div class="m-meta-row m-meta-row-2">
+                <div class="m-meta-cell">
+                  <span class="m-meta-label">Removed by</span>
+                  <span class="m-meta-value">Twitter</span>
+                </div>
+                <div class="m-meta-cell">
+                  <span class="m-meta-label">Seen by</span>
+                  <span class="m-meta-value">32.7M followers</span>
+                </div>
+              </div>
+
+            </div><!-- /.m-card -->
+
+            <p class="m-footnote">What looks like an impulsive tweet was the final step in a six-day ladder - each rung documented, each one ignored until this one wasn't.</p>
+
+          </div><!-- /.m-s1 -->
+
+          <!-- ── S2: Context + Timeline ── -->
+          <div class="m-s2">
+
+            <div class="m-context-text m-fade">
+              <h2 class="m-section-heading">This didn't come out of nowhere.</h2>
+              <div class="m-body">
+                <p style="line-height:24px;margin-bottom:0">Six days before the tweet, Kanye West walked out at Paris Fashion Week wearing a shirt that read "White Lives Matter" - a phrase the ADL classifies as a white supremacist slogan. The fashion world reacted with near-universal condemnation. </p><p style="line-height:24px;margin-bottom:0;font-weight:700">Kanye doubled down.</p>
+              </div>
+            </div>
+
+            <!-- Timeline: one grid row per entry — avatar (+connector) and text share the row, so they always line up. Click an avatar or row to view its content. -->
+            <div class="m-timeline" id="m-timeline">
+              <div class="m-tl-row-grid">
+                <div class="m-tl-avatar-col">
+                  <button class="m-tl-avatar" data-tl-index="0" aria-label="'White Lives Matter'"><img src="wlm-shirt.jpg" alt="WLM" style="object-position: center top;"></button>
+                  <div class="m-tl-connector"></div>
+                </div>
+                <button class="m-tl-item" data-tl-index="0">
+                  <span class="m-tl-row"><span class="m-tl-name">'White Lives Matter'</span><span class="m-tl-date">Oct 3, 2022</span></span>
+                  <span class="m-tl-desc">Kanye debuted the WLM shirt at Yeezy Season 9 in Paris. The ADL called it a white supremacist phrase.</span>
+                </button>
+
+                <div class="m-tl-avatar-col">
+                  <button class="m-tl-avatar" data-tl-index="1" aria-label="Diddy"><img src="GettyImages-1269752732-H-2021.webp" alt="Diddy" style="object-position: center 20%;"></button>
+                  <div class="m-tl-connector"></div>
+                </div>
+                <button class="m-tl-item" data-tl-index="1">
+                  <span class="m-tl-row"><span class="m-tl-name">Diddy</span><span class="m-tl-date">Oct 6–7, 2022</span></span>
+                  <span class="m-tl-desc">Diddy called Kanye privately. Kanye posted their texts publicly, claiming Diddy was used to silence him. Instagram banned him.</span>
+                </button>
+
+                <div class="m-tl-avatar-col">
+                  <button class="m-tl-avatar active" data-tl-index="2" aria-label="The tweet"><img src="kanye.webp" alt="Kanye" style="object-position: center 25%;"></button>
+                  <div class="m-tl-connector"></div>
+                </div>
+                <button class="m-tl-item active" data-tl-index="2">
+                  <span class="m-tl-row"><span class="m-tl-name">The tweet</span><span class="m-tl-date">Oct 8, 2022</span></span>
+                  <span class="m-tl-desc">Kanye posted the DEFCON tweet to 32.7M followers. Twitter removed it the next morning after 18 hours.</span>
+                </button>
+
+                <div class="m-tl-avatar-col">
+                  <button class="m-tl-avatar" data-tl-index="3" aria-label="Celebrity backlash"><img src="jamie-lee-curtis.webp" alt="Jamie" style="object-position: center 20%;"></button>
+                  <div class="m-tl-connector"></div>
+                </div>
+                <button class="m-tl-item" data-tl-index="3">
+                  <span class="m-tl-row"><span class="m-tl-name">Celebrity backlash</span><span class="m-tl-date">Oct 9–11, 2022</span></span>
+                  <span class="m-tl-desc">Jamie Lee Curtis, Jack Antonoff, David Schwimmer and John Legend among dozens to condemn publicly.</span>
+                </button>
+
+                <div class="m-tl-avatar-col">
+                  <button class="m-tl-avatar" data-tl-index="4" aria-label="Business collapse"><img src="financial.jpg" alt="Money" style="object-position: center center;"></button>
+                  <div class="m-tl-connector"></div>
+                </div>
+                <button class="m-tl-item" data-tl-index="4">
+                  <span class="m-tl-row"><span class="m-tl-name">Business collapse</span><span class="m-tl-date">Oct 12–25, 2022</span></span>
+                  <span class="m-tl-desc">Balenciaga, JPMorgan, CAA, Gap, Adidas cut ties in succession. Forbes strips billionaire status Oct 25.</span>
+                </button>
+
+                <div class="m-tl-avatar-col">
+                  <button class="m-tl-avatar" data-tl-index="5" aria-label="Kanye on InfoWars"><img src="kanye-infowars.jpg" alt="InfoWars" style="object-position: center 30%;"></button>
+                </div>
+                <button class="m-tl-item" data-tl-index="5">
+                  <span class="m-tl-row"><span class="m-tl-name">Kanye on InfoWars</span><span class="m-tl-date">Dec 1, 2022</span></span>
+                  <span class="m-tl-desc">"I like Hitler. I love Nazis." Elon Musk suspended his account again the next day.</span>
+                </button>
+              </div>
+            </div>
+
+          </div><!-- /.m-s2 -->
+
+          <!-- ── S3: $3 Billion ── -->
+          <div class="m-s3">
+
+            <div class="m-billions-head m-fade">
+              <p class="m-billions-heading">$3 billion in 18<span class="red"> days</span></p>
+              <p class="m-body" style="text-align:center">Seven major partnerships ended in under three weeks - a slow-motion public dismantling in real time.</p>
+            </div>
+
+            <div class="m-pie-section m-pop">
+              <!-- Pie SVG (interactive, click to reveal info) -->
+              <div class="m-pie-svg-wrap">
+                <svg id="m-pie-svg" viewBox="0 0 290 290"></svg>
+                <div class="m-pie-center-label">
+                  <span class="m-pie-center-num">$3B</span>
+                  <span class="m-pie-center-sub">Total lost</span>
+                </div>
+              </div>
+              <!-- Info panel, shown on slice click -->
+              <div class="m-pie-info" id="m-pie-info">
+                <div class="m-pie-info-header">
+                  <span class="m-pie-info-brand" id="m-pie-brand"></span>
+                  <span class="m-pie-info-amount" id="m-pie-amount"></span>
+                </div>
+                <p class="m-pie-info-desc" id="m-pie-desc"></p>
+              </div>
+            </div>
+
+            <p class="m-body m-pie-body-text">In the 18 days following the tweet, six major partnerships ended publicly - Adidas, Gap, Balenciaga, CAA, Foot Locker, and Vogue - stripping an evaluated $2.94B from his net worth. But the full commercial collapse extended further. JPMorgan Chase severed his business banking, cutting him off from mainstream financial infrastructure. TJX closed its global network of over 4,700 TJ Maxx, Marshalls, and HomeGoods stores to Yeezy product. MRC scrapped a completed documentary ready for distribution. His personal lawyer walked out at the moment of maximum legal exposure. When Forbes ran the numbers on October 25th - the same day Adidas made its announcement - they placed his total net worth at $400 million, down from $2 billion.<br><br>A loss of $1.6 billion in verified net worth, and an estimated $3B+ in total deal value, erased in under three weeks by a tweet that was live for 18 hours.</p>
+
+          </div><!-- /.m-s3 -->
+
+          <!-- ── S4: Deleted ── -->
+          <div class="m-s4 m-fade">
+            <h2 class="m-section-heading">The tweet was deleted. The consequences were not.</h2>
+            <p class="m-body">Kanye appeared on Piers Morgan's show on October 19th - before Adidas had even announced its decision. Morgan asked repeatedly whether he was sorry. Kanye said "Absolutely not" three times before, under sustained pressure, producing a partial statement: "I will say I'm sorry for the people that I hurt with the confusion that I caused."</p>
+            <p class="m-body" style="color:#fa181b;font-weight:700;">He did not say the tweet was wrong. He apologised for the confusion - not the content.</p>
+            <p class="m-body">In a later interview, he added: "I was drinking when I put up the DEFCON tweet. Hennessy. It turns us gray. The demons come out." When asked why he hadn't said that earlier, he said he didn't want to be discredited - because he still considered it his truth.</p>
+          </div>
+
+          <!-- ADL stat -->
+          <p class="m-adl m-fade">The ADL documented <span class="red">30 real world antisemitic incidents</span> directly tied to Kanye's rants in 2022.</p>
+
+          <!-- Mobile footer -->
+          <div class="m-footer">
+            <p class="m-footer-title">Sources</p>
+            <ul class="m-footer-sources">
+              <li><span class="lbl">Tweet & removal</span> — Twitter/X archive; Guardian, BBC</li>
+              <li><span class="lbl">WLM shirt</span> — Vogue, GQ, Dazed, Oct 3 2022</li>
+              <li><span class="lbl">Business fallout</span> — Forbes Oct 25 2022; Adidas & Gap statements</li>
+              <li><span class="lbl">ADL report</span> — ADL 2022 Audit of Antisemitic Incidents</li>
+            </ul>
+          </div>
+
+        </div><!-- /.mobile-page -->
+        </div><!-- /.mobile-scaler -->
+      </div><!-- /.iphone-content -->
+    </div><!-- /.iphone-screen -->
+  </div><!-- /.iphone-shell -->
+
+</div><!-- /#mockup-overlay -->
+
+<script>
+  // ── Mobile timeline: click an avatar or row to switch the active entry
+  const mTimeline = document.getElementById('m-timeline');
+  if (mTimeline) {
+    const setActiveTl = (index) => {
+      mTimeline.querySelectorAll('[data-tl-index]').forEach(el => {
+        el.classList.toggle('active', el.dataset.tlIndex === index);
+      });
+    };
+    mTimeline.querySelectorAll('[data-tl-index]').forEach(el => {
+      el.addEventListener('click', () => setActiveTl(el.dataset.tlIndex));
+    });
+  }
+
+  // ── PIE CHART DATA / HELPERS (shared by mobile pie) ──
+  const PIE_DATA = [
+    {
+      name: 'Adidas',
+      amount: 1500,
+      display: '~$1.5B',
+      color: '#fa181b',
+      date: 'Oct 25, 2022',
+      desc: 'Adidas terminated the Yeezy partnership "with immediate effect," ending the most lucrative celebrity-brand deal in history. Yeezy generated ~$1.5B in annual revenue for Adidas. Forbes stripped Kanye of billionaire status the same day.'
+    },
+    {
+      name: 'Gap',
+      amount: 970,
+      display: '~$970M',
+      color: '#b01215',
+      date: 'Sep 15, 2022',
+      desc: 'Gap ended the Yeezy Gap deal early — a 10-year partnership signed in 2020 reportedly worth up to $1B. Gap removed all Yeezy product from stores and its website. The deal had been seen as a creative lifeline for the struggling retailer.'
+    },
+    {
+      name: 'Balenciaga',
+      amount: 200,
+      display: '~$200M (est.)',
+      color: '#7a0e10',
+      date: 'Oct 21, 2022',
+      desc: 'Balenciaga severed its creative partnership with Kanye. The two had collaborated extensively on runway and streetwear. Demna Gvasalia had been one of Kanye\'s closest creative collaborators. Estimated deal value is approximate.'
+    },
+    {
+      name: 'CAA',
+      amount: 100,
+      display: '~$100M (est.)',
+      color: '#553a3a',
+      date: 'Oct 22, 2022',
+      desc: 'Creative Artists Agency dropped Kanye, cutting off his booking pipeline for tours, brand deals, and film projects. CAA had represented him since early in his career. Without major agency representation, future revenue deals become significantly harder to close.'
+    },
+    {
+      name: 'Foot Locker',
+      amount: 100,
+      display: '~$100M (est.)',
+      color: '#3a3030',
+      date: 'Oct 25, 2022',
+      desc: 'Foot Locker pulled Yeezy product from its shelves following the Adidas announcement. As a major retail partner for Yeezy sneakers, the loss extended the financial impact beyond the Adidas deal. Value is an estimate based on reported Yeezy retail volumes.'
+    },
+    {
+      name: 'Other',
+      amount: 130,
+      display: '~$130M (est.)',
+      color: '#252020',
+      date: 'Oct–Nov 2022',
+      desc: 'Includes: JPMorgan Chase severing his business banking; TJX (TJ Maxx, Marshalls) pulling Yeezy globally; MRC scrapping a completed Kanye documentary; Vogue / Condé Nast ending editorial partnerships; and his personal attorney withdrawing at maximum legal exposure.'
+    }
+  ];
+
+  const TOTAL = PIE_DATA.reduce((s, d) => s + d.amount, 0);
+
+  function polarToCartesian(cx, cy, r, angleDeg) {
+    const rad = (angleDeg - 90) * Math.PI / 180;
+    return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+  }
+
+  function slicePath(cx, cy, r, innerR, startAngle, endAngle) {
+    const s1 = polarToCartesian(cx, cy, r, startAngle);
+    const e1 = polarToCartesian(cx, cy, r, endAngle);
+    const s2 = polarToCartesian(cx, cy, innerR, endAngle);
+    const e2 = polarToCartesian(cx, cy, innerR, startAngle);
+    const large = endAngle - startAngle > 180 ? 1 : 0;
+    return [
+      `M ${s1.x} ${s1.y}`,
+      `A ${r} ${r} 0 ${large} 1 ${e1.x} ${e1.y}`,
+      `L ${s2.x} ${s2.y}`,
+      `A ${innerR} ${innerR} 0 ${large} 0 ${e2.x} ${e2.y}`,
+      'Z'
+    ].join(' ');
+  }
+
+  // ── X Thread screen → mobile content transition ──
+  const xScreen = document.getElementById('x-thread-screen');
+  const xLink = document.getElementById('x-thread-link');
+  const xCard = document.getElementById('x-link-card');
+
+  function openBreakdown() {
+    xScreen.classList.add('x-hidden');
+    // Reset X screen after transition so back feels natural if overlay is reopened
+  }
+
+  if (xLink) xLink.addEventListener('click', openBreakdown);
+  if (xCard) xCard.addEventListener('click', openBreakdown);
+
+
+  // ── MOBILE SCROLL HEIGHT FIX + ANIMATIONS ──
+  const MOBILE_SCALE = 0.8142; /* 320/393 — screen is 340px shell - 10px inset each side = 320px */
+  let mobileAnimsInited = false;
+
+  function initMobileAnimations() {
+    const scaler = document.querySelector('.mobile-scaler');
+    const content = document.querySelector('.iphone-content');
+    if (!scaler || !content) return;
+
+    // transform:scale() doesn't affect layout — the scroll container sees the
+    // full unscaled height and lets us scroll too far. Fix: shrink the scaler's
+    // layout height to match its visual height so scroll stops correctly.
+    // Visual height = naturalHeight * SCALE. We want to stop 48px (unscaled: 61px) below last section.
+    // The mobile-page already has padding-bottom:80px. We just need to correct the scaler height.
+    const naturalH = scaler.scrollHeight;
+    const visualH = naturalH * MOBILE_SCALE;
+    // Set explicit height on scaler so its layout box matches the visual size
+    scaler.style.height = (visualH) + 'px';
+    // But the inner mobile-page must still have its full natural height for transform to work
+    // So we absolutely position it inside:
+    scaler.style.position = 'relative';
+    scaler.style.overflow = 'visible';
+    const page = scaler.querySelector('.mobile-page');
+    if (page) {
+      page.style.position = 'absolute';
+      page.style.top = '0';
+      page.style.left = '0';
+    }
+
+    if (mobileAnimsInited) return;
+    mobileAnimsInited = true;
+
+    // IntersectionObserver using the phone scroll container as root
+    const mFadeEls = content.querySelectorAll('.m-fade');
+    const mPopEls = content.querySelectorAll('.m-pop');
+    const mAvatars = content.querySelectorAll('.m-tl-avatar');
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('m-visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { root: content, threshold: 0.08 });
+
+    mFadeEls.forEach(el => obs.observe(el));
+    mPopEls.forEach(el => obs.observe(el));
+
+    // Stagger avatars when the timeline column enters view
+    const tlAvatarCol = content.querySelector('#m-timeline');
+    if (tlAvatarCol) {
+      const tlObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            mAvatars.forEach((av, i) => {
+              setTimeout(() => av.classList.add('m-visible'), i * 80);
+            });
+            tlObs.unobserve(e.target);
+          }
+        });
+      }, { root: content, threshold: 0.05 });
+      tlObs.observe(tlAvatarCol);
+    }
+  }
+
+  // ── MOBILE PIE CHART ──
+  let mobilePieBuilt = false;
+  function buildMobilePie() {
+    if (mobilePieBuilt) return;
+    mobilePieBuilt = true;
+
+    const MCX = 145, MCY = 145, MR = 132, MINNER = 66;
+    const mSvg = document.getElementById('m-pie-svg');
+    const mInfo = document.getElementById('m-pie-info');
+    const mBrand = document.getElementById('m-pie-brand');
+    const mAmount = document.getElementById('m-pie-amount');
+    const mDesc = document.getElementById('m-pie-desc');
+    let activePath = null;
+
+    let mAngle = 0;
+    PIE_DATA.forEach(item => {
+      const angle = (item.amount / TOTAL) * 360;
+      const endAngle = mAngle + angle;
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', slicePath(MCX, MCY, MR, MINNER, mAngle, endAngle));
+      path.setAttribute('fill', item.color);
+      path.setAttribute('stroke', '#141820');
+      path.setAttribute('stroke-width', '2');
+      path.style.cursor = 'pointer';
+      path.style.transition = 'transform 0.2s ease, filter 0.2s ease';
+      path.style.transformOrigin = `${MCX}px ${MCY}px`;
+      path.style.transformBox = 'view-box';
+
+      path.addEventListener('click', () => {
+        if (activePath && activePath !== path) {
+          activePath.style.transform = 'scale(1)';
+          activePath.style.filter = 'none';
+        }
+        if (activePath === path) {
+          path.style.transform = 'scale(1)';
+          path.style.filter = 'none';
+          mInfo.classList.remove('visible');
+          activePath = null;
+          return;
+        }
+        activePath = path;
+        path.style.transform = 'scale(1.06)';
+        path.style.filter = 'brightness(1.3)';
+        mBrand.textContent = item.name;
+        mAmount.textContent = item.display;
+        mDesc.innerHTML = item.desc.replace(
+          'Forbes stripped Kanye of billionaire status the same day.',
+          '<strong>Forbes stripped Kanye of billionaire status the same day.</strong>'
+        );
+        mInfo.classList.add('visible');
+      });
+
+      mSvg.appendChild(path);
+      mAngle = endAngle;
+    });
+  }
+
+  // ── Run mobile setup immediately — this is the only view, no toggle needed ──
+  buildMobilePie();
+  requestAnimationFrame(() => setTimeout(initMobileAnimations, 50));
+</script>
+</body>
+</html>
