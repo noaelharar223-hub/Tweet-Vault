@@ -1,0 +1,147 @@
+.home-page {
+  background: #090a0c;
+  color: #fff;
+  font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  width: 393px;
+  padding: 62px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.home-logo {
+  width: 146px;
+  height: 11px;
+}
+.home-search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 14px 16px;
+  width: 100%;
+}
+.home-search-input {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: 1 1 auto;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+}
+.home-search-input::placeholder {
+  color: rgba(255,255,255,0.8);
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 400;
+}
+.home-sort {
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  margin-left: 8px;
+  border-left: 1px solid rgba(217,217,217,0.16);
+  flex-shrink: 0;
+}
+.home-sort span {
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
+.home-celeb-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.home-celeb-card {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  height: 96px;
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 0 12px 0 0;
+  text-align: left;
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
+  --tick-w: 6.129px;
+  --tick-t: 0.968px;
+}
+.home-celeb-card.linked {
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.home-celeb-card.linked:active { background-color: rgba(255,255,255,0.05); }
+
+.home-celeb-photo {
+  flex-shrink: 0;
+  width: 121px;
+  height: 96px;
+  overflow: hidden;
+}
+.home-celeb-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: grayscale(1);
+}
+
+.home-celeb-info {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.home-celeb-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.home-celeb-name {
+  font-family: 'Index Mono', 'SF Mono', monospace;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+  color: #fff;
+  text-transform: uppercase;
+}
+.home-celeb-category {
+  font-family: 'Index Mono', 'SF Mono', monospace;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: -0.04em;
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+}
+.home-celeb-count {
+  font-family: 'Index Mono', 'SF Mono', monospace;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.04em;
+  color: rgba(255,255,255,0.9);
+  text-transform: uppercase;
+}
+.home-no-results {
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 24px 0;
+}

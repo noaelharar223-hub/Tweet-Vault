@@ -1,0 +1,7 @@
+.m-adl {
+  font-family: 'Index Mono', 'SF Mono', monospace;
+  font-size: 32px; line-height: 32px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase; color: #fff; font-weight: 500;
+}
+.m-adl .red { color: #fa181b; }

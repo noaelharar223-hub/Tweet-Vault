@@ -1,0 +1,10 @@
+.artist-page {
+  background: #090a0c;
+  color: #fff;
+  font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  width: 393px;
+  padding: 72px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}

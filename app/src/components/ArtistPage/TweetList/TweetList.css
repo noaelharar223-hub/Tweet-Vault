@@ -1,0 +1,177 @@
+.artist-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+.artist-count {
+  font-family: 'Index Mono', 'SF Mono', monospace;
+  font-weight: 500;
+  font-size: 18px;
+  color: #fff;
+}
+.artist-search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 14px 16px;
+  width: 100%;
+}
+.artist-search-input {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: 1 1 auto;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+}
+.artist-search-input::placeholder {
+  color: rgba(255,255,255,0.8);
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 400;
+}
+.artist-sort-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+.artist-sort {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 0 0 8px;
+  margin: 0;
+  background: none;
+  border: none;
+  border-left: 1px solid rgba(217,217,217,0.16);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+.artist-sort span {
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+.artist-date-popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 5;
+  background: #14161c;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 220px;
+}
+.artist-date-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.artist-date-field label {
+  font-family: 'Index Mono', 'SF Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.artist-date-field input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #0e1016;
+  border: 1px solid rgba(255,255,255,0.16);
+  color: #fff;
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-size: 14px;
+  padding: 8px;
+  color-scheme: dark;
+}
+.artist-date-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+.artist-date-actions button {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: 1 1 auto;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: none;
+  color: #fff;
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-size: 13px;
+  padding: 8px 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.artist-date-actions .artist-date-apply {
+  background: #fff;
+  color: #0e1016;
+  border-color: #fff;
+  font-weight: 600;
+}
+.artist-no-results {
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 24px 0;
+}
+
+.artist-tweet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.artist-tweet-card {
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 8px 12px;
+  text-align: left;
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
+  --tick-w: 6.129px;
+  --tick-t: 0.968px;
+}
+.artist-tweet-card.linked {
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.artist-tweet-card.linked:active { background-color: rgba(255,255,255,0.05); }
+.artist-tweet-date {
+  display: block;
+  font-family: 'Index Mono', 'SF Mono', monospace;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.artist-tweet-quote {
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: rgba(255,255,255,0.9);
+}

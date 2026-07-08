@@ -1,0 +1,201 @@
+.m-s1 {
+  position: relative;
+  height: 852px;
+  margin-left: -24px;
+  width: calc(100% + 48px);
+  background: #090a0c;
+}
+
+.m-hero-header, .m-hero-nav-btn {
+  opacity: 0;
+  transition: opacity 0.6s linear;
+}
+.m-hero-header.intro-in, .m-hero-nav-btn.intro-in {
+  opacity: 1;
+}
+
+.m-fade-in {
+  opacity: 0;
+  transition: opacity 0.6s linear;
+}
+.m-fade-in.intro-in { opacity: 1; }
+
+.m-hero-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.m-hero-header-wrap {
+  position: absolute;
+  left: 24px;
+  top: 72px;
+}
+.m-hero-header-hit {
+  position: absolute;
+  inset: -8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 1;
+}
+.m-hero-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #e10f12;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+.m-hero-title {
+  font-family: 'Index Mono', 'SF Mono', monospace;
+  font-weight: 500;
+  font-size: 16px;
+  color: #e10f12;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.m-hero-content {
+  position: absolute;
+  left: 24.5px;
+  top: 146px;
+  width: 345px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.m-hero-label-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.m-hero-label {
+  font-family: 'Index Mono', 'SF Mono', monospace;
+  font-weight: 500;
+  font-size: 18px;
+  color: #fff;
+}
+.m-hero-date {
+  font-family: 'Index Mono', 'SF Mono', monospace;
+  font-weight: 300;
+  font-size: 15px;
+  color: #cdcdcd;
+  letter-spacing: -0.02em;
+}
+.m-hero-body {
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 31px;
+  color: #fff;
+  letter-spacing: -0.02em;
+  max-height: 341px;
+  overflow: hidden;
+}
+.m-hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Index Mono', 'SF Mono', monospace;
+  font-weight: 300;
+  font-size: 15px;
+  color: #cdcdcd;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.m-hero-meta strong { color: #fff; font-weight: 500; }
+
+.m-hero-content.switching { opacity: 0; transform: translateY(6px); }
+.m-hero-content { transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+
+.m-hero-nav {
+  position: absolute;
+  left: 0;
+  top: 621px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.m-hero-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: none;
+  outline: none;
+  padding: 4px 10px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s ease, opacity 0.6s linear;
+}
+.m-hero-nav-btn:active { transform: scale(0.88); }
+.m-hero-nav-btn svg { display: block; width: 24px; height: 24px; }
+.m-hero-nav-btn.prev svg { transform: rotate(180deg); }
+
+.m-carousel {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 161px;
+  touch-action: pan-y;
+  user-select: none;
+  cursor: grab;
+  overflow: hidden;
+}
+.m-carousel.dragging { cursor: grabbing; }
+.m-carousel-frame {
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+  width: 53px;
+  height: 72px;
+  cursor: pointer;
+  will-change: transform, width, height;
+}
+.m-carousel-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  display: block;
+  filter: grayscale(1);
+}
+.m-carousel-frame .tint {
+  position: absolute;
+  inset: 0;
+  background: #8c0b0d;
+  mix-blend-mode: lighten;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.m-carousel-frame.active .tint { opacity: 1; }
+
+.m-deleted-heading {
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}

@@ -1,0 +1,35 @@
+/* Corner-bracket decoration (Figma node 148:189) — small L-shaped ticks at
+   each of the 4 corners of a bordered box, drawn on a ::after pseudo-element
+   (paints above real children like the photo <img>) via layered
+   background-gradients so no extra DOM elements are needed. --tick-w/--tick-t
+   (length/thickness) are set per usage context. */
+.corner-brackets {
+  position: relative;
+  --tick-c: #d9d9d9;
+}
+.corner-brackets::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--tick-c), var(--tick-c)),
+    linear-gradient(to bottom, var(--tick-c), var(--tick-c)),
+    linear-gradient(to left, var(--tick-c), var(--tick-c)),
+    linear-gradient(to bottom, var(--tick-c), var(--tick-c)),
+    linear-gradient(to right, var(--tick-c), var(--tick-c)),
+    linear-gradient(to top, var(--tick-c), var(--tick-c)),
+    linear-gradient(to left, var(--tick-c), var(--tick-c)),
+    linear-gradient(to top, var(--tick-c), var(--tick-c));
+  background-repeat: no-repeat;
+  background-size:
+    var(--tick-w) var(--tick-t), var(--tick-t) var(--tick-w),
+    var(--tick-w) var(--tick-t), var(--tick-t) var(--tick-w),
+    var(--tick-w) var(--tick-t), var(--tick-t) var(--tick-w),
+    var(--tick-w) var(--tick-t), var(--tick-t) var(--tick-w);
+  background-position:
+    top left, top left,
+    top right, top right,
+    bottom left, bottom left,
+    bottom right, bottom right;
+}

@@ -1,0 +1,293 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@font-face {
+  font-family: 'Monument Extended';
+  src: local('Monument Extended'), local('MonumentExtended-Regular');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Index Mono';
+  src: url('/fonts/IndexMonoDLv1AAA-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Index Mono';
+  src: url('/fonts/IndexMonoDLv1AAA-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Index Mono';
+  src: url('/fonts/IndexMonoDLv1AAA-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Index Mono';
+  src: url('/fonts/IndexMonoDLv1AAA-DemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Almoni';
+  src: url('/fonts/AlmoniMLv5AAA-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Almoni';
+  src: url('/fonts/AlmoniMLv5AAA-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Almoni';
+  src: url('/fonts/AlmoniMLv5AAA-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #0e1016;
+  color: #ffffff;
+  font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, #2e3140 1.2px, transparent 1.2px);
+  background-size: 120px 120px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ══════════════════════════════
+   IPHONE MOCKUP (always-visible mobile view)
+══════════════════════════════ */
+#mockup-overlay {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(10, 11, 16, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: center;
+}
+
+.iphone-shell {
+  position: relative;
+  width: 340px;
+  height: 736px;
+  border-radius: 54px;
+  flex-shrink: 0;
+  background: linear-gradient(160deg, #5a5a58 0%, #3e3e3c 8%, #4a4a48 16%,
+    #343432 24%, #424240 32%, #383836 40%, #4e4e4c 48%, #363634 56%,
+    #444442 64%, #303030 72%, #3c3c3a 80%, #464644 88%, #363634 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.12),
+    inset 0 0 0 2px rgba(0,0,0,0.25),
+    0 0 0 1px rgba(0,0,0,0.5),
+    0 30px 60px rgba(0,0,0,0.65),
+    0 60px 120px rgba(0,0,0,0.4),
+    0 4px 8px rgba(0,0,0,0.5);
+}
+
+.iphone-vol-mute {
+  position: absolute;
+  left: -3px;
+  top: 106px;
+  width: 3px;
+  height: 20px;
+  background: linear-gradient(to right, #2a2a28 0%, #3a3a38 40%, #464644 100%);
+  border-radius: 2px 0 0 2px;
+}
+
+.iphone-vol-up {
+  position: absolute;
+  left: -3px;
+  top: 130px;
+  width: 3px;
+  height: 36px;
+  background: linear-gradient(to right, #2a2a28 0%, #3a3a38 40%, #464644 100%);
+  border-radius: 2px 0 0 2px;
+}
+
+.iphone-vol-down {
+  position: absolute;
+  left: -3px;
+  top: 180px;
+  width: 3px;
+  height: 36px;
+  background: linear-gradient(to right, #2a2a28 0%, #3a3a38 40%, #464644 100%);
+  border-radius: 2px 0 0 2px;
+}
+
+.iphone-shell::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 190px;
+  width: 3px;
+  height: 72px;
+  background: linear-gradient(to left, #2a2a28 0%, #3a3a38 40%, #464644 100%);
+  border-radius: 0 2px 2px 0;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+}
+
+.iphone-screen-bezel {
+  position: absolute;
+  inset: 8px;
+  border-radius: 46px;
+  background: #000;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.8);
+}
+
+.iphone-screen {
+  position: absolute;
+  inset: 10px;
+  border-radius: 44px;
+  overflow: hidden;
+  background: #090a0c;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.3);
+}
+
+.iphone-screen::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.04) 0%,
+    rgba(255,255,255,0) 100%
+  );
+  border-radius: 44px 44px 0 0;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.iphone-island {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 34px;
+  background: #000;
+  border-radius: 20px;
+  z-index: 10;
+  box-shadow: inset 22px 9px 0 -5px #111;
+}
+
+.iphone-content {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.iphone-content::-webkit-scrollbar { display: none; }
+
+.mobile-scaler {
+  position: relative;
+  width: 393px;
+  transform-origin: top left;
+  transform: scale(0.8142); /* 320/393 — screen is 340px shell - 10px inset each side = 320px */
+}
+
+/* Both pages are absolutely stacked on top of each other inside the scaler
+   (never pushed into normal flow) so a page swap never reflows layout —
+   the incoming/outgoing page's scale animates in place with no jump, and
+   .mobile-scaler's own JS-driven height (see useMobileScale) controls how
+   tall the scroll container thinks the content is. */
+.page-slot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform-origin: top center;
+}
+
+/* The BACK page-slot specifically (not the scaler itself, and not the FRONT
+   slot) is clipped to exactly the scaler's own height, which always tracks
+   the FRONT/current page's height. Without this, a back page taller than
+   the current front page (e.g. the artist page's full tweet list vs. the
+   shorter tweet page) overflows past the scaler's box and, since .page-slot
+   is absolutely positioned and doesn't otherwise get clipped, that overflow
+   becomes reachable by scrolling .iphone-content past the front page's real
+   end. Putting `overflow:hidden` on .mobile-scaler itself instead of here
+   was tried first, but it clips ALL children including the front slot —
+   which, combined with the large negative scroll offsets .mobile-scaler
+   sits at while scrolled deep into a tall page, produced a Chromium
+   paint/layout-geometry mismatch that clipped real, in-bounds front-page
+   content too. Clipping only the back slot avoids putting any active/
+   settled/scrollable page through an overflow:hidden ancestor at all. */
+.page-slot.page-slot-back {
+  height: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  #mockup-overlay {
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 0;
+  }
+  .iphone-shell {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+  .iphone-vol-mute, .iphone-vol-up, .iphone-vol-down,
+  .iphone-screen-bezel, .iphone-island {
+    display: none;
+  }
+  .iphone-shell::after { display: none; }
+  .iphone-screen {
+    inset: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .iphone-screen::before { display: none; }
+  .mobile-scaler {
+    width: 100%;
+    transform: none;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE LAYOUT (inside mockup)
+══════════════════════════════ */
+.mobile-page {
+  background: #090a0c;
+  color: #fff;
+  font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  width: 393px;
+  padding: 0 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 88px;
+}
+
+.m-body {
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  font-weight: 400;
+}
+.m-body strong { font-weight: 700; }

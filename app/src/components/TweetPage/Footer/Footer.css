@@ -1,0 +1,12 @@
+.m-footer {
+  border-top: 1px solid #1e2130;
+  padding-top: 24px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.m-footer-title {
+  font-family: 'Monument Extended', 'Impact', sans-serif;
+  font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: #494949;
+}
+.m-footer-sources { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.m-footer-sources li { font-size: 10px; line-height: 1.5; color: #3a3d4a; }
+.m-footer-sources .lbl { color: #555870; font-weight: 600; }
