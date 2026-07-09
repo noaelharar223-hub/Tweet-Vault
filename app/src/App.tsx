@@ -267,8 +267,12 @@ function App() {
       {/* Rendered once, outside the animated/scrolling page stack, so it
           stays fixed at the exact same screen position (see ShareButton.css)
           across every page and every navigation — never re-mounts, never
-          scrolls away. */}
-      <ShareButton />
+          scrolls away. Hidden while the X-thread splash is still showing
+          (both it and the splash sit at the same z-index, and the splash
+          is only slid/faded out via CSS rather than unmounted, so without
+          this guard the share icon shows through on top of that opening
+          mockup before the user has even opened the breakdown). */}
+      {splashHidden && <ShareButton />}
 
       <div className="iphone-content" ref={contentRef}>
         <div className="mobile-scaler" ref={scalerRef} style={height ? { height } : undefined}>
