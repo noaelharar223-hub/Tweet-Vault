@@ -5,6 +5,7 @@ import { XThreadSplash } from './components/XThreadSplash/XThreadSplash';
 import { TweetPage } from './components/TweetPage/TweetPage';
 import { ArtistPage } from './components/ArtistPage/ArtistPage';
 import { HomePage } from './components/HomePage/HomePage';
+import { ShareButton } from './components/ShareButton/ShareButton';
 import { useMobileScale } from './hooks/useMobileScale';
 
 // A fixed 3-level stack — home < artist < tweet — navigated one level at a
@@ -262,6 +263,12 @@ function App() {
   return (
     <PhoneMockup>
       <XThreadSplash hidden={splashHidden} onOpenBreakdown={openBreakdown} />
+
+      {/* Rendered once, outside the animated/scrolling page stack, so it
+          stays fixed at the exact same screen position (see ShareButton.css)
+          across every page and every navigation — never re-mounts, never
+          scrolls away. */}
+      <ShareButton />
 
       <div className="iphone-content" ref={contentRef}>
         <div className="mobile-scaler" ref={scalerRef} style={height ? { height } : undefined}>

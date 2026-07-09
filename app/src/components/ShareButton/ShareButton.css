@@ -1,0 +1,59 @@
+/* Fixed at the same spot on every page (top:72px mirrors the left:24px used
+   by each page's own header text/logo, which all sit at that same top
+   offset) — rendered once in App.tsx, outside the animated page stack, so
+   it never moves or re-mounts across navigation. */
+.share-button-wrap {
+  position: absolute;
+  top: 72px;
+  right: 24px;
+  z-index: 20;
+}
+.share-button {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.share-button:active { opacity: 0.6; }
+
+.share-popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 5;
+  background: #14161c;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 180px;
+}
+.share-option {
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 10px 8px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s ease;
+}
+.share-option:active { background: rgba(255,255,255,0.08); }
+.share-option span {
+  font-family: 'Almoni', -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+}

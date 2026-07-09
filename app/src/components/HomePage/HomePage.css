@@ -3,7 +3,9 @@
   color: #fff;
   font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
   width: 393px;
-  padding: 62px 24px 80px;
+  padding: 72px 24px 80px; /* matches the artist/tweet pages' top padding so
+    the logo lines up with the fixed-position ShareButton (see
+    ShareButton.css) across all three pages */
   display: flex;
   flex-direction: column;
   gap: 32px;
