@@ -1,12 +1,18 @@
-/* Fixed at the same spot on every page (top:72px mirrors the left:24px used
-   by each page's own header text/logo, which all sit at that same top
-   offset) — rendered once in App.tsx, outside the animated page stack, so
-   it never moves or re-mounts across navigation. */
+/* Fixed at the same spot on every page it appears on (home, artist — see the
+   `page !== 'tweet'` guard in App.tsx) — rendered once, outside the animated
+   page stack, so it never moves or re-mounts across navigation. `top` is the
+   measured vertical CENTER of the header row's logo/title text (72px
+   top-padding + ~half the artist wordmark's own line height), not the
+   row's top edge — `transform: translateY(-50%)` on the 32px icon box then
+   centers the icon on that same point the way Figma's `align-items: center`
+   header row does, instead of top-aligning the icon (which sits visibly low
+   next to the much shorter logo/title text beside it). */
 .share-button-wrap {
   position: absolute;
-  top: 72px;
+  top: 64.7px;
   right: 24px;
   z-index: 20;
+  transform: translateY(-50%);
 }
 .share-button {
   appearance: none;
@@ -14,8 +20,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   background: none;
   border: none;
   padding: 0;

@@ -267,8 +267,11 @@ function App() {
       {/* Rendered once, outside the animated/scrolling page stack, so it
           stays fixed at the exact same screen position (see ShareButton.css)
           across every page and every navigation — never re-mounts, never
-          scrolls away. */}
-      <ShareButton />
+          scrolls away. Hidden on the tweet page — sharing makes sense for
+          the celebrity list and artist profile, not the tweet breakdown
+          itself, which has its own dedicated back button in that same
+          corner's opposite side. */}
+      {page !== 'tweet' && <ShareButton />}
 
       <div className="iphone-content" ref={contentRef}>
         <div className="mobile-scaler" ref={scalerRef} style={height ? { height } : undefined}>
